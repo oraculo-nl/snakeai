@@ -23,7 +23,7 @@ BLUE2 = (0, 100, 255)
 BLACK = (0,0,0)
 
 BLOCK_SIZE = 20
-SPEED = 20
+SPEED = 0.0001
 
 class SnakeGame:
     
@@ -117,6 +117,7 @@ class SnakeGame:
         pygame.display.flip()
         
     def _move(self, direction):
+        # calculate next x,y of snake head
         x = self.head.x
         y = self.head.y
         if direction == Direction.RIGHT:
@@ -128,6 +129,7 @@ class SnakeGame:
         elif direction == Direction.UP:
             y -= BLOCK_SIZE
             
+        # and update the head in snake list with new coordinates
         self.head = Point(x, y)
             
 
